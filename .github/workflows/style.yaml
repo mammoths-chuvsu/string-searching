@@ -1,0 +1,26 @@
+name: Style
+
+on:
+    pull_request:
+        types: [opened, synchronize, reopened]
+    
+    push:
+        branches:
+          - main
+
+jobs:
+  style_checking:
+
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Install format dependencies
+      run: pip3 install clang-format==14.0.6 cmake_format==0.6.11 pyyaml
+
+    - name: configure
+      run: cmake -S. -Bbuild/style -DENABLE_STYLE_CHECKS=ON -DENABLE_UNIT_TESTS=OFF
+
+    - name: check style
+      run: cmake --build build/style --target check-format

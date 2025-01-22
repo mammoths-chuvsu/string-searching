@@ -1,0 +1,5 @@
+include: ["cmake/.cmake-format-additional_commands-cpm"]
+format:
+  tab_size: 2
+  line_width: 100
+  dangle_parens: true
