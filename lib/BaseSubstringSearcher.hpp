@@ -2,6 +2,7 @@
 #define BASE_SUBSTRING_SEARCHER_HPP_
 
 #include <string>
+#include <optional>
 
 enum class SubstringSearchAlgorithm { kNaive };
 
@@ -14,6 +15,8 @@ public:
     virtual ~BaseSubstringSearcher() = default;
 
     const std::string &getName() const { return name_; }
+
+    static std::optional<SubstringSearchAlgorithm> GetAlgorithmByName(const std::string &name);
 
 protected:
     std::string name_;
