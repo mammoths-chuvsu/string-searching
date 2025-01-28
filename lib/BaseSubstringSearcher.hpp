@@ -3,6 +3,8 @@
 
 #include <string>
 
+enum class SubstringSearchAlgorithm { kNaive };
+
 class BaseSubstringSearcher {
 public:
     BaseSubstringSearcher(std::string name) : name_(std::move(name)) {}
@@ -11,9 +13,7 @@ public:
 
     virtual ~BaseSubstringSearcher() = default;
 
-    const std::string &getName() const {
-        return name_;
-    }
+    const std::string &getName() const { return name_; }
 
 protected:
     std::string name_;
