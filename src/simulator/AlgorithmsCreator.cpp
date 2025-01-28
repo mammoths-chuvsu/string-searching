@@ -2,7 +2,7 @@
 
 #include <stdexcept>
 
-#include "../../lib/NaiveSubstringSearcher.hpp"
+#include "lib/NaiveSubstringSearcher.hpp"
 
 AlgorithmList AlgorithmsCreator::CreateAlgorithms(const std::vector<std::string>& algorithmsNames) {
     AlgorithmList algorithmList;

@@ -4,7 +4,7 @@
 #include <memory>
 #include <vector>
 
-#include "../../lib/BaseSubstringSearcher.hpp"
+#include "lib/BaseSubstringSearcher.hpp"
 
 using AlgorithmList = std::vector<std::unique_ptr<BaseSubstringSearcher>>;
 
