@@ -5,16 +5,16 @@
 #include "lib/naive_substring_searcher.hpp"
 
 AlgorithmList AlgorithmsCreator::CreateAlgorithms(
-    const std::vector<const std::string>& algorithmsNames) {
-    AlgorithmList algorithmList;
-    for (const auto& name : algorithmsNames) {
+    const std::vector<std::string>& algorithms_names) {
+    AlgorithmList algorithm_list;
+    for (const auto& name : algorithms_names) {
         std::optional<SubstringSearchAlgorithm> algorithm =
             BaseSubstringSearcher::GetAlgorithmByName(name);
 
         if (algorithm.has_value()) {
             switch (algorithm.value()) {
                 case SubstringSearchAlgorithm::kNaive:
-                    algorithmList.push_back(std::make_unique<NaiveSubstringSearcher>());
+                    algorithm_list.push_back(std::make_unique<NaiveSubstringSearcher>());
                     break;
             }
 
@@ -23,5 +23,5 @@ AlgorithmList AlgorithmsCreator::CreateAlgorithms(
         }
     }
 
-    return algorithmList;
+    return algorithm_list;
 }

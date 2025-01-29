@@ -15,7 +15,7 @@ private:
 public:
     ArgumentParser(int argc, char** argv);
 
-    const std::vector<const std::string> GetAlgorithmsNames() const;
+    const std::vector<std::string> GetAlgorithmsNames();
     const std::string GetSubstring() const;
     const std::string GetText() const;
 };

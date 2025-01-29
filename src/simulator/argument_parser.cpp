@@ -19,10 +19,9 @@ ArgumentParser::ArgumentParser(int argc, char** argv) {
     }
 }
 
-const std::vector<const std::string> ArgumentParser::GetAlgorithmsNames() const {
-    return options_.count("algorithms")
-               ? options_["algorithms"].as<std::vector<const std::string>>()
-               : std::vector<const std::string>();
+const std::vector<std::string> ArgumentParser::GetAlgorithmsNames() {
+    return options_.count("algorithms") ? options_["algorithms"].as<std::vector<std::string>>()
+                                        : std::vector<std::string>();
 }
 
 const std::string ArgumentParser::GetSubstring() const {

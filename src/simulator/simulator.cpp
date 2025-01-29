@@ -3,10 +3,9 @@
 #include <chrono>
 #include <iostream>
 
-Simulator::Simulator(std::vector<std::unique_ptr<BaseSubstringSearcher>> algorithms)
-    : algorithms_(std::move(algorithms)) {}
+Simulator::Simulator(AlgorithmList algorithms) : algorithms_(std::move(algorithms)) {}
 
-void Simulator::Run(const std::string& text, const std::string& substring, std::ostream& os) {
+void Simulator::Run(const std::string& text, const std::string& substring, std::ostream& output) {
     for (const auto& algorithm : algorithms_) {
         const auto start = std::chrono::high_resolution_clock::now();
 
@@ -15,6 +14,6 @@ void Simulator::Run(const std::string& text, const std::string& substring, std::
         const auto stop = std::chrono::high_resolution_clock::now();
         const auto diff = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
 
-        os << algorithm->getName() << '\n' << diff.count() << "ms\n-----------\n";
+        output << algorithm->getName() << '\n' << diff.count() << "ms\n-----------\n";
     }
 }
