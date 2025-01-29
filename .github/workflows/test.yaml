@@ -8,16 +8,17 @@ on:
       - main
 
 jobs:
-    run_tests:
-        runs-on: ubuntu-latest
-        strategy:
-            matrix:
-                cfg:
-                    - { BUILD_TYPE: Release }
-        steps:
-          - uses: actions/checkout@v4
-          - name: Test
-            run: |
-                cmake -S. -Bbuild/test
-                cmake --build build/test
-                ctest --output-on-failure
+  unit_tests:
+      runs-on: ubuntu-latest
+      strategy:
+          matrix:
+              cfg:
+                  - { BUILD_TYPE: Release }
+      steps:
+        - uses: actions/checkout@v4
+        
+        - name: unit tests
+          run: |
+              cmake -S. -Bbuild/test -DENABLE_UNIT_TESTS=ON -DENABLE_STYLE_CHECKS=OFF
+              cmake --build build/test
+              ctest --output-on-failure
