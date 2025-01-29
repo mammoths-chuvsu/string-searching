@@ -14,7 +14,7 @@ public:
 
     virtual ~BaseSubstringSearcher() = default;
 
-    const std::string &getName() const { return name_; }
+    std::string GetName() const { return name_; }
 
     static std::optional<SubstringSearchAlgorithm> GetAlgorithmByName(const std::string &name);
 
