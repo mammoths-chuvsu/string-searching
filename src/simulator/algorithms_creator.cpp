@@ -1,10 +1,11 @@
-#include "AlgorithmsCreator.hpp"
+#include "algorithms_creator.hpp"
 
 #include <stdexcept>
 
-#include "lib/NaiveSubstringSearcher.hpp"
+#include "lib/naive_substring_searcher.hpp"
 
-AlgorithmList AlgorithmsCreator::CreateAlgorithms(const std::vector<std::string>& algorithmsNames) {
+AlgorithmList AlgorithmsCreator::CreateAlgorithms(
+    const std::vector<const std::string>& algorithmsNames) {
     AlgorithmList algorithmList;
     for (const auto& name : algorithmsNames) {
         std::optional<SubstringSearchAlgorithm> algorithm =
@@ -21,4 +22,6 @@ AlgorithmList AlgorithmsCreator::CreateAlgorithms(const std::vector<std::string>
             throw std::invalid_argument(name + " is not in list of implemented algorithms");
         }
     }
+
+    return algorithmList;
 }

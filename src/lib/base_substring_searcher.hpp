@@ -1,8 +1,8 @@
 #ifndef BASE_SUBSTRING_SEARCHER_HPP_
 #define BASE_SUBSTRING_SEARCHER_HPP_
 
-#include <string>
 #include <optional>
+#include <string>
 
 enum class SubstringSearchAlgorithm { kNaive };
 

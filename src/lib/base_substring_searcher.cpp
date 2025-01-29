@@ -1,4 +1,4 @@
-#include "BaseSubstringSearcher.hpp"
+#include "base_substring_searcher.hpp"
 
 std::optional<SubstringSearchAlgorithm> BaseSubstringSearcher::GetAlgorithmByName(
     const std::string& name) {

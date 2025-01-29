@@ -3,7 +3,7 @@
 
 #include <string>
 
-#include "BaseSubstringSearcher.hpp"
+#include "base_substring_searcher.hpp"
 
 class NaiveSubstringSearcher : public BaseSubstringSearcher {
 public:
