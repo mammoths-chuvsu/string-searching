@@ -19,3 +19,6 @@ add_test(NAME ${BINARY} COMMAND ${BINARY})
 
 # linking with gtest and implemented classes
 target_link_libraries(${BINARY} PRIVATE ${CMAKE_PROJECT_NAME} gtest gmock)
+
+# specify the directory for header files
+target_include_directories(${BINARY} PRIVATE ${PROJECT_SOURCE_DIR}/)
