@@ -1,7 +1,7 @@
 #include <gtest/gtest.h>
 #include <string>
 
-#include <src/lib/NaiveSubstringSearcher.hpp>
+#include <src/lib/naive_substring_searcher.hpp>
 
 TEST(NaiveSubstringSearcherTest, ContainsEmptySubstring) {
   NaiveSubstringSearcher searcher;

@@ -2,7 +2,7 @@
 #include <optional>
 #include <string>
 
-#include <src/lib/BaseSubstringSearcher.hpp>
+#include <src/lib/base_substring_searcher.hpp>
 
 TEST(BaseSubstringSearcherTest, GetAlgorithmByNameNaive) {
   auto algorithm = BaseSubstringSearcher::GetAlgorithmByName("Naive");
