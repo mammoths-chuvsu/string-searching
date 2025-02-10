@@ -1,6 +1,7 @@
 #include "simulator/simulator.hpp"
 
 #include <gtest/gtest.h>
+
 #include <sstream>
 
 #include "lib/naive_substring_searcher.hpp"
@@ -23,9 +24,9 @@ TEST(SimulatorTest, Run) {
     simulator.Run("sample text", "sample", output);
 
     std::string result = output.str();
-    
+
     EXPECT_TRUE(result.find("MockAlgorithm") != std::string::npos);
-    
+
     EXPECT_TRUE(result.find("Duration:") != std::string::npos);
 
     EXPECT_TRUE(result.find("Status: Substring found") != std::string::npos);
