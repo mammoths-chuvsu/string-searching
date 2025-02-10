@@ -2,9 +2,8 @@
 #define UTILS_HPP_
 
 #include <memory>
+#include <string-searching/base_substring_searcher.hpp>
 #include <vector>
-
-#include "lib/base_substring_searcher.hpp"
 
 using AlgorithmList = std::vector<std::unique_ptr<BaseSubstringSearcher>>;
 

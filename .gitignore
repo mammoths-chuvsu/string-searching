@@ -3,6 +3,7 @@ build/
 cmake-build-debug/
 Testing/
 venv/
+.venv/
 
 # IDE and related files
 .cache/

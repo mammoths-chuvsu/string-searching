@@ -1,7 +1,7 @@
 #include <gtest/gtest.h>
 
 #include <optional>
-#include <src/lib/base_substring_searcher.hpp>
+#include <string-searching/base_substring_searcher.hpp>
 #include <string>
 
 TEST(BaseSubstringSearcherTest, GetAlgorithmByNameNaive) {

@@ -1,4 +1,27 @@
-set(BINARY ${CMAKE_PROJECT_NAME}_test)
+cmake_minimum_required(VERSION 3.20)
+
+project("string-searching-tests" LANGUAGES CXX)
+
+# ---- Options ----
+option(TEST_INSTALLED_VERSION "Test the version found by find_package" OFF)
+
+# ---- CMake configuration ----
+
+# Include guards
+if(PROJECT_SOURCE_DIR STREQUAL PROJECT_BINARY_DIR)
+  message(
+    FATAL_ERROR
+      "In-source builds not allowed. Please make a new directory (called a build directory) and run CMake from there."
+  )
+endif()
+
+# Make Clangd works
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
+# ---- Dependencies ----
+
+# Enable CPM
+include("../../cmake/CPM.cmake")
 
 # downlaod googletest
 CPMAddPackage(
@@ -9,16 +32,22 @@ CPMAddPackage(
   OPTIONS "INSTALL_GTEST OFF" "gtest_force_shared_crt"
 )
 
+if(TEST_INSTALLED_VERSION)
+  find_package("string-searching" REQUIRED)
+else()
+  CPMAddPackage(NAME "string-searching" SOURCE_DIR ${CMAKE_CURRENT_LIST_DIR}/../..)
+endif()
+
+# ---- Create binary ----
+
+file(GLOB sources CONFIGURE_DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp)
+add_executable(${PROJECT_NAME} ${sources})
+target_link_libraries(
+  ${PROJECT_NAME} PRIVATE string-searching::string-searching gtest gtest_main gmock
+)
+set_target_properties(${PROJECT_NAME} PROPERTIES CXX_STANDARD 20)
+
 # getting GTest
 enable_testing()
-
-# building tests
-file(GLOB_RECURSE test_sources "*.hpp" "*.cpp")
-add_executable(${BINARY} ${test_sources})
-add_test(NAME ${BINARY} COMMAND ${BINARY})
-
-# linking with gtest and implemented classes
-target_link_libraries(${BINARY} PRIVATE ${CMAKE_PROJECT_NAME} gtest gmock)
-
-# specify the directory for header files
-target_include_directories(${BINARY} PRIVATE ${PROJECT_SOURCE_DIR}/)
+include(GoogleTest)
+gtest_discover_tests(${PROJECT_NAME})
