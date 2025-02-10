@@ -14,6 +14,9 @@ void Simulator::Run(const std::string& text, const std::string& substring, std::
         const auto stop = std::chrono::high_resolution_clock::now();
         const auto diff = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
 
-        output << algorithm->GetName() << '\n' << diff.count() << "ms\n-----------\n";
+        output << std::boolalpha;
+        output << algorithm->GetName() << '\n'
+               << result << '\n'
+               << diff.count() << "ms\n-----------\n";
     }
 }
