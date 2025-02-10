@@ -1,8 +1,6 @@
-#include "algorithms_creator.hpp"
-
+#include <algorithms_creator.hpp>
 #include <stdexcept>
-
-#include "lib/naive_substring_searcher.hpp"
+#include <string-searching/naive_substring_searcher.hpp>
 
 AlgorithmList AlgorithmsCreator::CreateAlgorithms(
     const std::vector<std::string>& algorithms_names) {

@@ -19,6 +19,6 @@ jobs:
         
         - name: unit tests
           run: |
-              cmake -S. -Bbuild/test -DENABLE_UNIT_TESTS=ON -DENABLE_STYLE_CHECKS=OFF
+              cmake -Stests/unit -Bbuild/test 
               cmake --build build/test
-              ctest --output-on-failure
+              ctest --test-dir build/test --output-on-failure

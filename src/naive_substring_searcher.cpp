@@ -1,4 +1,4 @@
-#include "naive_substring_searcher.hpp"
+#include <string-searching/naive_substring_searcher.hpp>
 
 NaiveSubstringSearcher::NaiveSubstringSearcher() : BaseSubstringSearcher("Naive") {}
 
