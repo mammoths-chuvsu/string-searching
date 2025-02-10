@@ -11,3 +11,6 @@ venv/
 
 # OS Generated file
 **/.DS_Store
+
+# Documentation
+docs/html/
