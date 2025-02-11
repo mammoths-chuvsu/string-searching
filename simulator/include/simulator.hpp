@@ -20,11 +20,12 @@ public:
      * \param substring string to search in text.
      *
      * Format of output:
-     *
-     * {algorithm name}
-     * {result (true or false)}
-     * {time of execution}ms
-     * -----------
+     * ----------------------------
+     * Timestamp: %Y-%m-%d %H:%M:%S
+     * Algorithm: {algorithm name}
+     * Duration: {time of execution} ms
+     * Status: substring [not] found
+     * ----------------------------
      */
     void Run(const std::string &text, const std::string &substring, std::ostream &output);
 
