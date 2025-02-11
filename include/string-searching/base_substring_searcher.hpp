@@ -8,9 +8,10 @@
  * \brief Enumeration of implemented algorithms.
  */
 enum class SubstringSearchAlgorithm {
-    kNaive,     ///< Naive algorithm
-    kKmp,       ///< Knuth-Morris-Pratt algorithm
-    kZFunction  ///< Z function algorithm
+    kNaive,      ///< Naive algorithm
+    kKmp,        ///< Knuth-Morris-Pratt algorithm
+    kZFunction,  ///< Z function algorithm
+    kRabinKarp   ///< Rabin-Karp algorithm
 };
 
 /**
