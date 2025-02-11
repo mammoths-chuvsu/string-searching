@@ -1,8 +1,7 @@
-#include "simulator/algorithms_creator.hpp"
-
 #include <gtest/gtest.h>
 
-#include "lib/naive_substring_searcher.hpp"
+#include <simulator/algorithms_creator.hpp>
+#include <string-searching/naive_substring_searcher.hpp>
 
 TEST(AlgorithmsCreatorTest, CreateValidAlgorithm) {
     AlgorithmsCreator creator;

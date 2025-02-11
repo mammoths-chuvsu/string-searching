@@ -1,9 +1,8 @@
-#include "simulator.hpp"
-
 #include <chrono>
 #include <ctime>
 #include <iomanip>
 #include <iostream>
+#include <simulator/simulator.hpp>
 
 Simulator::Simulator(AlgorithmList algorithms) : algorithms_(std::move(algorithms)) {}
 

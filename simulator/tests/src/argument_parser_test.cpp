@@ -1,6 +1,6 @@
-#include "simulator/argument_parser.hpp"
-
 #include <gtest/gtest.h>
+
+#include <simulator/argument_parser.hpp>
 
 TEST(ArgumentParserTest, HelpOption) {
     const char* argv[] = {"program", "--help"};

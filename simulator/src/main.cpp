@@ -1,9 +1,8 @@
 #include <iostream>
-
-#include "algorithms_creator.hpp"
-#include "argument_parser.hpp"
-#include "simulator.hpp"
-#include "utils.hpp"
+#include <simulator/algorithms_creator.hpp>
+#include <simulator/argument_parser.hpp>
+#include <simulator/simulator.hpp>
+#include <simulator/utils.hpp>
 
 int main(int argc, char** argv) {
     ArgumentParser parser(argc, argv);

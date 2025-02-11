@@ -29,12 +29,24 @@
 
 ## Установка и запуск
 
-Зависимости: 
+Зависимости для сборки: 
 
 - Компилятор с поддержкой C++20
 - CMake ≥ 3.20
 
-Сборка проекта осуществляется через **CMake**.
+Чтобы собрать и запустить симулятор, откройте терминал и выполните следующие команды:
+```bash 
+cmake -Ssimulator/ -Bbuild/simulator 
+cmake --build build/simulator
+./simulator/run-simulator --help
+```
+
+Чтобы собрать пакет с библиотекой string-searching, выполните следующее:
+```bash 
+cmake -S. -Bbuild/string-searching
+cmake --build build/string-searching
+```
+После этого можно использовать библиотеку через `find_package(string-searching)` в CMake внутри вашего проекта.
 
 Для генерации документации используется **Doxygen**:
 
