@@ -1,6 +1,7 @@
 #include <algorithms_creator.hpp>
 #include <stdexcept>
 #include <string-searching/naive_substring_searcher.hpp>
+#include <string-searching/z_substring_searcher.hpp>
 
 AlgorithmList AlgorithmsCreator::CreateAlgorithms(
     const std::vector<std::string>& algorithms_names) {
@@ -14,6 +15,8 @@ AlgorithmList AlgorithmsCreator::CreateAlgorithms(
                 case SubstringSearchAlgorithm::kNaive:
                     algorithm_list.push_back(std::make_unique<NaiveSubstringSearcher>());
                     break;
+                case SubstringSearchAlgorithm::kZFunction:
+                    algorithm_list.push_back(std::make_unique<ZSubstringSearcher>());
             }
 
         } else {
