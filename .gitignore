@@ -2,6 +2,8 @@
 build/
 cmake-build-debug/
 Testing/
+venv/
+.venv/
 
 # IDE and related files
 .cache/
@@ -10,3 +12,6 @@ Testing/
 
 # OS Generated file
 **/.DS_Store
+
+# Documentation
+docs/html/

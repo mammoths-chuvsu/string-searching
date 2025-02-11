@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.20)
 
 project(
-  "string-searching"
+  "simulator"
   VERSION 1.0.0
   LANGUAGES CXX
 )
@@ -23,16 +23,25 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 # ---- Dependencies ----
 
 # Enable CPM
-include("cmake/CPM.cmake")
+include("../cmake/CPM.cmake")
 
-# PackageProject.cmake will be used to make our target installable
-CPMAddPackage("gh:TheLartians/PackageProject.cmake@1.8.0")
+CPMAddPackage(NAME "string-searching" SOURCE_DIR ${CMAKE_CURRENT_LIST_DIR}/..)
+
+CPMAddPackage(
+  NAME Boost
+  VERSION 1.86.0
+  URL https://github.com/boostorg/boost/releases/download/boost-1.86.0/boost-1.86.0-cmake.tar.xz
+  URL_HASH SHA256=2c5ec5edcdff47ff55e27ed9560b0a0b94b07bd07ed9928b476150e16b0efc57
+  OPTIONS "BOOST_ENABLE_CMAKE ON" "BOOST_INCLUDE_LIBRARIES program_options" # Note the escapes!
+)
 
 # ---- Add source files ----
 
 file(GLOB_RECURSE headers CONFIGURE_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/include/*.hpp")
 file(GLOB_RECURSE sources CONFIGURE_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp")
+list(FILTER sources EXCLUDE REGEX ".*main\\.cpp$")
 
+# create library
 add_library(${PROJECT_NAME} ${headers} ${sources})
 set_target_properties(${PROJECT_NAME} PROPERTIES CXX_STANDARD 20 POSITION_INDEPENDENT_CODE ON)
 
@@ -44,21 +53,9 @@ target_include_directories(
   ${PROJECT_NAME} PUBLIC $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>
                          $<INSTALL_INTERFACE:include/${PROJECT_NAME}-${PROJECT_VERSION}>
 )
+target_link_libraries(${PROJECT_NAME} "string-searching::string-searching" Boost::program_options)
 
-# ---- Create an installable target ----
-# this allows users to install and find the library via `find_package()`.
-
-# the location where the project's version header will be placed should match the project's regular
-# header paths
-string(TOLOWER ${PROJECT_NAME}/version.h VERSION_HEADER_LOCATION)
-
-packageProject(
-  NAME ${PROJECT_NAME}
-  VERSION ${PROJECT_VERSION}
-  NAMESPACE ${PROJECT_NAME}
-  BINARY_DIR ${PROJECT_BINARY_DIR}
-  INCLUDE_DIR ${PROJECT_SOURCE_DIR}/include
-  INCLUDE_DESTINATION include/${PROJECT_NAME}-${PROJECT_VERSION}
-  VERSION_HEADER "${VERSION_HEADER_LOCATION}"
-  COMPATIBILITY SameMajorVersion
-)
+# create executable
+add_executable(run-simulator src/main.cpp)
+target_link_libraries(run-simulator PRIVATE simulator)
+set_target_properties(run-simulator PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${CMAKE_CURRENT_LIST_DIR}")
