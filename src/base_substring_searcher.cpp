@@ -8,6 +8,8 @@ std::optional<SubstringSearchAlgorithm> BaseSubstringSearcher::GetAlgorithmByNam
         return SubstringSearchAlgorithm::kKmp;
     } else if (name == "ZAlgorithm") {
         return SubstringSearchAlgorithm::kZFunction;
+    } else if (name == "Rabin-Karp") {
+        return SubstringSearchAlgorithm::kRabinKarp;
     } else {
         return std::nullopt;
     }
