@@ -1,10 +1,8 @@
-#include "simulator/simulator.hpp"
-
 #include <gtest/gtest.h>
 
+#include <simulator/simulator.hpp>
 #include <sstream>
-
-#include "lib/naive_substring_searcher.hpp"
+#include <string-searching/naive_substring_searcher.hpp>
 
 class MockAlgorithm : public BaseSubstringSearcher {
 public:
