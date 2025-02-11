@@ -19,7 +19,7 @@ private:
      * \brief Computes prefix function array for the string.
      * \param str string to compute for.
      * \return Returns prefix function array.
-     * 
+     *
      * p[i] is length of
      * the longest proper prefix of the substring str[0..i] which is
      * also a suffix of this substring.

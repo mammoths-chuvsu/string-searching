@@ -6,6 +6,8 @@ std::optional<SubstringSearchAlgorithm> BaseSubstringSearcher::GetAlgorithmByNam
         return SubstringSearchAlgorithm::kNaive;
     } else if (name == "KMP") {
         return SubstringSearchAlgorithm::kKmp;
+    } else if (name == "ZAlgorithm") {
+        return SubstringSearchAlgorithm::kZFunction;
     } else {
         return std::nullopt;
     }
