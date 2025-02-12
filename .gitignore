@@ -1,7 +1,8 @@
 # Build directories, libraries and binary files
+Testing/
 build/
 cmake-build-debug/
-Testing/
+simulator/bin/
 venv/
 .venv/
 
