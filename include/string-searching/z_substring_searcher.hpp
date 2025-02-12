@@ -33,4 +33,4 @@ private:
                              int combined_length) const;
 };
 
-#endif
+#endif  // Z_SUBSTRING_SEARCHER_HPP_

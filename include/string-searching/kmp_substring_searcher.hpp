@@ -12,6 +12,7 @@
 class KmpSubstringSearcher : public BaseSubstringSearcher {
 public:
     KmpSubstringSearcher();
+
     bool Contains(const std::string& text, const std::string& substring) const override;
 
 private:
@@ -27,4 +28,4 @@ private:
     std::vector<int> ComputePrefixFunction(const std::string& str) const;
 };
 
-#endif
+#endif  // KMP_SUBSTRING_SEARCHER_HPP_

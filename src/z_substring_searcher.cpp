@@ -3,7 +3,7 @@
 #include <string>
 #include <vector>
 
-ZSubstringSearcher::ZSubstringSearcher() : BaseSubstringSearcher("ZAlgorithm") {}
+ZSubstringSearcher::ZSubstringSearcher() : BaseSubstringSearcher("Z-algorithm") {}
 
 std::vector<int> ZSubstringSearcher::ComputeZArray(const std::string& combined) const {
     const int n = static_cast<int>(combined.length());

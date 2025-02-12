@@ -14,13 +14,13 @@ TEST(ArgumentParserTest, HelpOption) {
 }
 
 TEST(ArgumentParserTest, GetAlgorithmsNames) {
-    const char* argv[] = {"program", "--algorithms", "Naive"};
+    const char* argv[] = {"program", "--algorithms", "brute-force"};
     int argc = 3;
     ArgumentParser parser(argc, const_cast<char**>(argv));
 
     auto algorithms = parser.GetAlgorithmsNames();
     ASSERT_EQ(algorithms.size(), 1);
-    EXPECT_EQ(algorithms[0], "Naive");
+    EXPECT_EQ(algorithms[0], "brute-force");
 }
 
 TEST(ArgumentParserTest, GetSubstring) {
