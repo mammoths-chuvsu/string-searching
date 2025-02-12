@@ -1,6 +1,8 @@
 #include <simulator/algorithms_creator.hpp>
 #include <stdexcept>
+#include <string-searching/kmp_substring_searcher.hpp>
 #include <string-searching/naive_substring_searcher.hpp>
+#include <string-searching/rabin_karp_substring_searcher.hpp>
 #include <string-searching/z_substring_searcher.hpp>
 
 AlgorithmList AlgorithmsCreator::CreateAlgorithms(
@@ -17,8 +19,14 @@ AlgorithmList AlgorithmsCreator::CreateAlgorithms(
                     break;
                 case SubstringSearchAlgorithm::kZFunction:
                     algorithm_list.push_back(std::make_unique<ZSubstringSearcher>());
+                    break;
+                case SubstringSearchAlgorithm::kKmp:
+                    algorithm_list.push_back(std::make_unique<KmpSubstringSearcher>());
+                    break;
+                case SubstringSearchAlgorithm::kRabinKarp:
+                    algorithm_list.push_back(std::make_unique<RabinKarpSearcher>());
+                    break;
             }
-
         } else {
             throw std::invalid_argument(name + " is not in list of implemented algorithms");
         }
