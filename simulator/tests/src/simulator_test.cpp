@@ -2,7 +2,7 @@
 
 #include <simulator/simulator.hpp>
 #include <sstream>
-#include <string-searching/naive_substring_searcher.hpp>
+#include <string-searching/base_substring_searcher.hpp>
 
 class MockAlgorithm : public BaseSubstringSearcher {
 public:
