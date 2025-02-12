@@ -58,4 +58,6 @@ target_link_libraries(${PROJECT_NAME} "string-searching::string-searching" Boost
 # create executable
 add_executable(run-simulator src/main.cpp)
 target_link_libraries(run-simulator PRIVATE simulator)
-set_target_properties(run-simulator PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${CMAKE_CURRENT_LIST_DIR}")
+set_target_properties(
+  run-simulator PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${CMAKE_CURRENT_LIST_DIR}/bin"
+)

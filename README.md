@@ -38,7 +38,7 @@
 ```bash 
 cmake -Ssimulator/ -Bbuild/simulator 
 cmake --build build/simulator
-./simulator/run-simulator --help
+./simulator/bin/run-simulator --help
 ```
 
 Чтобы собрать пакет с библиотекой string-searching, выполните следующее:
