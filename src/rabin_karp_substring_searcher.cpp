@@ -1,4 +1,7 @@
-#include "string-searching/rabin_karp_substring_searcher.hpp"
+#include <string-searching/base_substring_searcher.hpp>
+#include <string-searching/rabin_karp_substring_searcher.hpp>
+
+RabinKarpSearcher::RabinKarpSearcher() : BaseSubstringSearcher("Rabin-Karp") {}
 
 RabinKarpSearcher::RabinKarpSearcher(size_t alphabet_size, size_t prime)
     : BaseSubstringSearcher("Rabin-Karp"), alphabet_size_(alphabet_size), prime_(prime) {}
