@@ -24,7 +24,7 @@ AlgorithmList AlgorithmsCreator::CreateAlgorithms(
     if (algorithms_names.empty()) {
         algorithm_list.reserve(factory_map.size());
 
-        for (const auto &[name, factory] : factory_map) {
+        for (const auto& [name, factory] : factory_map) {
             algorithm_list.push_back(factory());
         }
     }
