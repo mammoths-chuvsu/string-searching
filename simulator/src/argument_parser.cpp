@@ -60,10 +60,6 @@ const std::vector<std::string> ArgumentParser::GetAlgorithmsNames() {
                                         : std::vector<std::string>();
 }
 
-const std::string ArgumentParser::GetSubstring() const {
-    return options_.count("substring") ? options_["substring"].as<std::string>() : "";
-}
+const std::string ArgumentParser::GetSubstring() const { return substring_; }
 
-const std::string ArgumentParser::GetText() const {
-    return options_.count("text") ? options_["text"].as<std::string>() : "";
-}
+const std::string ArgumentParser::GetText() const { return text_; }
