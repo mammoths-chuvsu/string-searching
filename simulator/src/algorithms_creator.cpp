@@ -1,35 +1,34 @@
+#include <memory>
 #include <simulator/algorithms_creator.hpp>
-#include <stdexcept>
+#include <string-searching/brute_force_substring_searcher.hpp>
 #include <string-searching/kmp_substring_searcher.hpp>
-#include <string-searching/naive_substring_searcher.hpp>
 #include <string-searching/rabin_karp_substring_searcher.hpp>
+#include <string-searching/shift_or_substring_searcher.hpp>
 #include <string-searching/z_substring_searcher.hpp>
+
+#include "simulator/utils.hpp"
 
 AlgorithmList AlgorithmsCreator::CreateAlgorithms(
     const std::vector<std::string>& algorithms_names) {
-    AlgorithmList algorithm_list;
-    for (const auto& name : algorithms_names) {
-        std::optional<SubstringSearchAlgorithm> algorithm =
-            BaseSubstringSearcher::GetAlgorithmByName(name);
+    using AlgorithmFactory = std::function<std::unique_ptr<BaseSubstringSearcher>()>;
 
-        if (algorithm.has_value()) {
-            switch (algorithm.value()) {
-                case SubstringSearchAlgorithm::kNaive:
-                    algorithm_list.push_back(std::make_unique<NaiveSubstringSearcher>());
-                    break;
-                case SubstringSearchAlgorithm::kZFunction:
-                    algorithm_list.push_back(std::make_unique<ZSubstringSearcher>());
-                    break;
-                case SubstringSearchAlgorithm::kKmp:
-                    algorithm_list.push_back(std::make_unique<KmpSubstringSearcher>());
-                    break;
-                case SubstringSearchAlgorithm::kRabinKarp:
-                    algorithm_list.push_back(std::make_unique<RabinKarpSearcher>());
-                    break;
-            }
-        } else {
+    static std::unordered_map<std::string, AlgorithmFactory> factory_map = {
+        {"brute-force", []() { return std::make_unique<BruteForceSubstringSearcher>(); }},
+        {"KMP", []() { return std::make_unique<KmpSubstringSearcher>(); }},
+        {"Rabin-Karp", []() { return std::make_unique<RabinKarpSearcher>(); }},
+        {"Z-algorithm", []() { return std::make_unique<ZSubstringSearcher>(); }},
+        {"shift-or", []() { return std::make_unique<ShiftOrSubstringSearcher>(); }},
+    };
+
+    AlgorithmList algorithm_list;
+    algorithm_list.reserve(algorithms_names.size());
+
+    for (const auto& name : algorithms_names) {
+        auto iterator = factory_map.find(name);
+        if (iterator == factory_map.end()) {
             throw std::invalid_argument(name + " is not in list of implemented algorithms");
         }
+        algorithm_list.push_back(iterator->second());
     }
 
     return algorithm_list;
