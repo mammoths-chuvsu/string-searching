@@ -19,7 +19,7 @@ bool ShiftOrSubstringSearcher::Contains(const std::string& text,
     }
 
     // Check if the pattern length exceeds the limit (e.g., assuming 64-bit words)
-    if (pattern_length > (sizeof(uint64_t) * CHAR_BIT)) {
+    if (pattern_length >= (sizeof(uint64_t) * CHAR_BIT)) {
         throw std::runtime_error("The pattern is too long!");
     }
 
