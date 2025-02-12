@@ -11,6 +11,11 @@
 class RabinKarpSearcher : public BaseSubstringSearcher {
 public:
     /**
+     * @brief Constructs a Rabin-Karp searcher with default params.
+     */
+    RabinKarpSearcher();
+
+    /**
      * @brief Constructs a Rabin-Karp searcher with given alphabet size and prime number.
      */
     RabinKarpSearcher(size_t alphabet_size, size_t prime);
@@ -27,8 +32,8 @@ private:
     size_t ComputeHash(const std::string& str, size_t length) const;
     size_t RollHash(size_t old_hash, char old_char, char new_char, size_t highest_power) const;
 
-    size_t alphabet_size_;
-    size_t prime_;
+    size_t alphabet_size_ = 256;
+    size_t prime_ = 1e9 + 7;
 };
 
 #endif  // RABIN_KARP_SEARCHER_HPP_
