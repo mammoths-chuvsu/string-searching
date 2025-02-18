@@ -9,16 +9,17 @@ on:
 
 jobs:
   unit_tests:
-      runs-on: ubuntu-latest
-      strategy:
-          matrix:
-              cfg:
-                  - { BUILD_TYPE: Release }
-      steps:
-        - uses: actions/checkout@v4
+    name: Run unit-tests on ${{ matrix.os }} in ${{ matrix.BUILD_TYPE }} mode
+    runs-on: ${{ matrix.os }}
+    strategy:
+        matrix:
+            BUILD_TYPE: [Release]
+            os: [ubuntu-latest, windows-latest, macos-latest]
+    steps:
+      - uses: actions/checkout@v4
         
-        - name: unit tests
-          run: |
-              cmake -Ssimulator/tests -Bbuild/simulator/test 
-              cmake --build build/simulator/test
-              ctest --test-dir build/simulator/test --output-on-failure
+      - name: unit tests
+        run: |
+            cmake -Ssimulator/tests -Bbuild/simulator/test 
+            cmake --build build/simulator/test
+            ctest --test-dir build/simulator/test --output-on-failure
