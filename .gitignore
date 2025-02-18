@@ -1,7 +1,10 @@
 # Build directories, libraries and binary files
+Testing/
 build/
 cmake-build-debug/
-Testing/
+simulator/bin/
+venv/
+.venv/
 
 # IDE and related files
 .cache/
@@ -10,3 +13,6 @@ Testing/
 
 # OS Generated file
 **/.DS_Store
+
+# Documentation
+docs/html/
