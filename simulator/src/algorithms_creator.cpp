@@ -1,5 +1,6 @@
 #include <memory>
 #include <simulator/algorithms_creator.hpp>
+#include <stdexcept>
 #include <string-searching/aho_corasick_substring_searcher.hpp>
 #include <string-searching/brute_force_substring_searcher.hpp>
 #include <string-searching/kmp_substring_searcher.hpp>
