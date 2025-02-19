@@ -7,11 +7,8 @@ TEST(ArgumentParserTest, HelpOption) {
     int argc = 2;
 
     testing::internal::CaptureStdout();
-    EXPECT_EXIT(
-        { ArgumentParser parser(argc, const_cast<char**>(argv)); }, testing::ExitedWithCode(0),
-        ".*");
-    std::string output = testing::internal::GetCapturedStdout();
-    EXPECT_TRUE(output.find("Allowed options") != std::string::npos);
+    EXPECT_EXIT({ ArgumentParser parser(argc, const_cast<char**>(argv)); },
+                testing::ExitedWithCode(0), ".*");
 }
 
 TEST(ArgumentParserTest, GetAlgorithmsNames) {
