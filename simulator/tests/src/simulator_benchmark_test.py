@@ -1,18 +1,25 @@
-import subprocess
-import psutil
-import time
 import glob
 import os
+import platform
+import psutil
+import subprocess
+import time
 
 ALGORITHMS = ["KMP", "brute-force", "Rabin-Karp", "Z-algorithm", "shift-or", "Aho-Corasick"]
 
 def run_simulator(algorithm_name, text_path, substring_path):
-    command = [
-        "./simulator/bin/run-simulator",
-        "--algorithm", algorithm_name,
-        "-T", text_path,
-        "-S", substring_path
-    ]
+    simulator_base = ["simulator", "bin", "run-simulator"]
+    
+    if platform.system() == "Windows":
+        simulator_base = ["simulator", "bin", "Release", "run-simulator.exe"]
+    
+    simulator_path = os.path.join(*simulator_base)
+
+    command = [simulator_path, "--algorithm", algorithm_name, "-T", text_path, "-S", substring_path]
+
+    if not os.path.exists(simulator_path):
+        print(f"Simulator executable not found: {simulator_path}")
+        return
 
     try:
         process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE)

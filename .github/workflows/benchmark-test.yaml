@@ -33,5 +33,5 @@ jobs:
           fi
           pip install psutil
           cmake -Ssimulator/ -Bbuild/simulator
-          cmake --build build/simulator
+          cmake --build build/simulator --config Release
           python simulator/tests/src/simulator_benchmark_test.py
