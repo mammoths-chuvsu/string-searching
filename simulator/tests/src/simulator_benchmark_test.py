@@ -4,7 +4,7 @@ import time
 import glob
 import os
 
-ALGORITHMS = ["KMP", "brute-force", "Rabin-Karp", "Z-algorithm", "shift-or"]
+ALGORITHMS = ["KMP", "brute-force", "Rabin-Karp", "Z-algorithm", "shift-or", "Aho-Corasick"]
 
 def run_simulator(algorithm_name, text_path, substring_path):
     command = [

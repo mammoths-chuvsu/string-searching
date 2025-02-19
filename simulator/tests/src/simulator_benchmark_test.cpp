@@ -9,9 +9,9 @@ class SimulatorBenchmarkTest : public ::testing::Test {
 protected:
     void SetUp() override {
         algorithms_ = AlgorithmsCreator::CreateAlgorithms(
-            {"brute-force", "KMP", "Rabin-Karp", "Z-algorithm"});
+            {"brute-force", "KMP", "Rabin-Karp", "Z-algorithm", "Aho-Corasick"});
         algorithms_move_ = AlgorithmsCreator::CreateAlgorithms(
-            {"brute-force", "KMP", "Rabin-Karp", "Z-algorithm"});
+            {"brute-force", "KMP", "Rabin-Karp", "Z-algorithm", "Aho-Corasick"});
     }
 
     void VerifyOutput(const std::string& output, const std::string& algorithm_name,
@@ -36,10 +36,8 @@ protected:
 };
 
 TEST_F(SimulatorBenchmarkTest, Text500k_Substring63_NotFound) {
-    algorithms_ = AlgorithmsCreator::CreateAlgorithms(
-        {"brute-force", "KMP", "Rabin-Karp", "Z-algorithm", "shift-or"});
-    algorithms_move_ = AlgorithmsCreator::CreateAlgorithms(
-        {"brute-force", "KMP", "Rabin-Karp", "Z-algorithm", "shift-or"});
+    algorithms_ = AlgorithmsCreator::CreateAlgorithms({});
+    algorithms_move_ = AlgorithmsCreator::CreateAlgorithms({});
     std::string text = parser_.ReadFileContent(
         "../../../simulator/tests/resources/test-text-500k-substring-63-not-found/text.txt");
     std::string substring = parser_.ReadFileContent(
@@ -56,10 +54,8 @@ TEST_F(SimulatorBenchmarkTest, Text500k_Substring63_NotFound) {
 }
 
 TEST_F(SimulatorBenchmarkTest, Text500k_Substring63_Found) {
-    algorithms_ = AlgorithmsCreator::CreateAlgorithms(
-        {"brute-force", "KMP", "Rabin-Karp", "Z-algorithm", "shift-or"});
-    algorithms_move_ = AlgorithmsCreator::CreateAlgorithms(
-        {"brute-force", "KMP", "Rabin-Karp", "Z-algorithm", "shift-or"});
+    algorithms_ = AlgorithmsCreator::CreateAlgorithms({});
+    algorithms_move_ = AlgorithmsCreator::CreateAlgorithms({});
     std::string text = parser_.ReadFileContent(
         "../../../simulator/tests/resources/test-text-500k-substring-63-found/text.txt");
     std::string substring = parser_.ReadFileContent(
