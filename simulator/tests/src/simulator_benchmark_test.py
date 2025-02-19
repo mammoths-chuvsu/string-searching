@@ -40,7 +40,8 @@ def run_simulator(algorithm_name, text_path, substring_path):
         print(f"An error occurred while running algorithm {algorithm_name}: {e}")
 
 def main():
-    test_directories = glob.glob("simulator/tests/resources/test-*")
+    test_base_path = os.path.join("simulator", "tests", "resources")
+    test_directories = [d for d in glob.glob(os.path.join(test_base_path, "test-*")) if os.path.isdir(d)]
 
     for test_dir in test_directories:
         text_path = os.path.join(test_dir, "text.txt")
