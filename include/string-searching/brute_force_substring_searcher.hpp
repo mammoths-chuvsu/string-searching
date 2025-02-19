@@ -6,12 +6,13 @@
 #include "base_substring_searcher.hpp"
 
 /**
- * \brief Implementation of naive string searching algorithm.
+ * \brief Implementation of brute force string searching algorithm.
  */
-class NaiveSubstringSearcher : public BaseSubstringSearcher {
+class BruteForceSubstringSearcher : public BaseSubstringSearcher {
 public:
-    NaiveSubstringSearcher();
+    BruteForceSubstringSearcher();
+
     bool Contains(const std::string& text, const std::string& substring) const override;
 };
 
-#endif
+#endif  // BRUTE_FORCE_SUBSTRING_SEARCHER_HPP_

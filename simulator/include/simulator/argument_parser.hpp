@@ -13,6 +13,10 @@ namespace po = boost::program_options;
 class ArgumentParser {
 private:
     po::variables_map options_;  ///< Parsed arguments storage.
+    std::string substring_;
+    std::string text_;
+
+    std::string ReadFileContent(const std::string& file_path);
 
 public:
     /**

@@ -1,6 +1,10 @@
 #ifndef ALGORITHMS_CREATOR_HPP_
 #define ALGORITHMS_CREATOR_HPP_
 
+#include <functional>
+#include <string-searching/base_substring_searcher.hpp>
+#include <unordered_map>
+
 #include "utils.hpp"
 
 class AlgorithmsCreator {
