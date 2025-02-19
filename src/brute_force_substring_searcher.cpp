@@ -1,8 +1,9 @@
-#include <string-searching/naive_substring_searcher.hpp>
+#include <string-searching/brute_force_substring_searcher.hpp>
 
-NaiveSubstringSearcher::NaiveSubstringSearcher() : BaseSubstringSearcher("Naive") {}
+BruteForceSubstringSearcher::BruteForceSubstringSearcher() : BaseSubstringSearcher("brute-force") {}
 
-bool NaiveSubstringSearcher::Contains(const std::string& text, const std::string& substring) const {
+bool BruteForceSubstringSearcher::Contains(const std::string& text,
+                                           const std::string& substring) const {
     if (substring.empty()) return true;
     if (text.length() < substring.length()) return false;
 

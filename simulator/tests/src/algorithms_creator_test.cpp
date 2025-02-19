@@ -1,16 +1,16 @@
 #include <gtest/gtest.h>
 
 #include <simulator/algorithms_creator.hpp>
-#include <string-searching/naive_substring_searcher.hpp>
+#include <string-searching/brute_force_substring_searcher.hpp>
 
 TEST(AlgorithmsCreatorTest, CreateValidAlgorithm) {
     AlgorithmsCreator creator;
-    std::vector<std::string> names = {"Naive"};
+    std::vector<std::string> names = {"brute-force"};
 
     AlgorithmList algorithms = creator.CreateAlgorithms(names);
 
     ASSERT_EQ(algorithms.size(), 1);
-    EXPECT_EQ(algorithms[0]->GetName(), "Naive");
+    EXPECT_EQ(algorithms[0]->GetName(), "brute-force");
 }
 
 TEST(AlgorithmsCreatorTest, UnknownAlgorithm) {
