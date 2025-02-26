@@ -11,12 +11,12 @@ int main(int argc, char** argv) {
     std::string substring = parser.GetSubstring();
     std::string text = parser.GetText();
 
-    if (algorithm_names.empty() || substring.empty() || text.empty()) {
+    if (substring.empty() || text.empty()) {
         std::cerr << "Missing required arguments. Use --help for more information.\n";
         return 1;
     }
 
-    AlgorithmList algorithms = AlgorithmsCreator::CreateAlgorithms(algorithm_names);
+    AlgorithmList algorithms = AlgorithmsCreator::CreateAlgorithms(std::move(algorithm_names));
 
     Simulator simulator(std::move(algorithms));
 
