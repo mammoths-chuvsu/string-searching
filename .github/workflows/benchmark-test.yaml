@@ -1,0 +1,37 @@
+name: Simulator Benchmark Test
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+  push:
+    branches:
+      - main
+
+jobs:
+  benchmark:
+    name: Run simulator benchmark on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+
+      - name: Set up and run simulator benchmark
+        shell: bash
+        run: |
+          python -m venv venv
+          if [[ "$RUNNER_OS" == "Windows" ]]; then
+            source venv/Scripts/activate
+          else
+            source venv/bin/activate
+          fi
+          pip install psutil
+          cmake -Ssimulator/ -Bbuild/simulator
+          cmake --build build/simulator --config Release
+          python simulator/tests/src/simulator_benchmark_test.py

@@ -16,9 +16,9 @@ private:
     std::string substring_;
     std::string text_;
 
+public:
     std::string ReadFileContent(const std::string& file_path);
 
-public:
     /**
      * \brief Construct object, containing parsed arguments.
      *

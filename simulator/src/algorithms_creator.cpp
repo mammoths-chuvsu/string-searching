@@ -1,9 +1,12 @@
 #include <memory>
 #include <simulator/algorithms_creator.hpp>
+#include <stdexcept>
+#include <string-searching/aho_corasick_substring_searcher.hpp>
 #include <string-searching/brute_force_substring_searcher.hpp>
 #include <string-searching/kmp_substring_searcher.hpp>
 #include <string-searching/rabin_karp_substring_searcher.hpp>
 #include <string-searching/shift_or_substring_searcher.hpp>
+#include <string-searching/suffix_tree_substring_searcher.hpp>
 #include <string-searching/z_substring_searcher.hpp>
 
 #include "simulator/utils.hpp"
@@ -18,6 +21,8 @@ AlgorithmList AlgorithmsCreator::CreateAlgorithms(
         {"Rabin-Karp", []() { return std::make_unique<RabinKarpSearcher>(); }},
         {"Z-algorithm", []() { return std::make_unique<ZSubstringSearcher>(); }},
         {"shift-or", []() { return std::make_unique<ShiftOrSubstringSearcher>(); }},
+        {"Aho-Corasick", []() { return std::make_unique<AhoCorasickSearcher>(); }},
+        {"suffix-tree", []() { return std::make_unique<SuffixTreeSubstringSearcher>(); }},
     };
 
     AlgorithmList algorithm_list;
