@@ -7,12 +7,13 @@ import time
 
 ALGORITHMS = ["KMP", "brute-force", "Rabin-Karp", "Z-algorithm", "shift-or", "Aho-Corasick", "suffix-tree"]
 
+
 def run_simulator(algorithm_name, text_path, substring_path):
     simulator_base = ["simulator", "bin", "run-simulator"]
-    
+
     if platform.system() == "Windows":
         simulator_base = ["simulator", "bin", "Release", "run-simulator.exe"]
-    
+
     simulator_path = os.path.join(*simulator_base)
 
     command = [simulator_path, "--algorithm", algorithm_name, "-T", text_path, "-S", substring_path]
@@ -46,6 +47,7 @@ def run_simulator(algorithm_name, text_path, substring_path):
     except Exception as e:
         print(f"An error occurred while running algorithm {algorithm_name}: {e}")
 
+
 def main():
     test_base_path = os.path.join("simulator", "tests", "resources")
     test_directories = [d for d in glob.glob(os.path.join(test_base_path, "test-*")) if os.path.isdir(d)]
@@ -61,6 +63,7 @@ def main():
                 time.sleep(1)
         else:
             print(f"text.txt or substring.txt not found in directory {test_dir}")
+
 
 if __name__ == "__main__":
     main()

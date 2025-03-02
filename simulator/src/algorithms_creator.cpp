@@ -6,8 +6,8 @@
 #include <string-searching/kmp_substring_searcher.hpp>
 #include <string-searching/rabin_karp_substring_searcher.hpp>
 #include <string-searching/shift_or_substring_searcher.hpp>
-#include <string-searching/z_substring_searcher.hpp>
 #include <string-searching/suffix_tree_substring_searcher.hpp>
+#include <string-searching/z_substring_searcher.hpp>
 
 #include "simulator/utils.hpp"
 
