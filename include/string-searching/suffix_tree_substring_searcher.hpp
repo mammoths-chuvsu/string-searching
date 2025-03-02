@@ -6,7 +6,9 @@
 
 #include "base_substring_searcher.hpp"
 
-
+/**
+ * \brief Implementation of the Suffix Tree algorithm for substring search.
+ */
 class SuffixTreeSubstringSearcher : public BaseSubstringSearcher {
 public:
     SuffixTreeSubstringSearcher();
