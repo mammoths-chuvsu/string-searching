@@ -5,7 +5,7 @@ import psutil
 import subprocess
 import time
 
-ALGORITHMS = ["KMP", "brute-force", "Rabin-Karp", "Z-algorithm", "shift-or", "Aho-Corasick", "suffix-tree"]
+ALGORITHMS = ["KMP", "brute-force", "Rabin-Karp", "Z-algorithm", "shift-or", "Aho-Corasick", "suffix-tree", "boyer-moore"]
 
 
 def run_simulator(algorithm_name, text_path, substring_path):

@@ -1,6 +1,7 @@
 #include <gtest/gtest.h>
 
 #include <string-searching/aho_corasick_substring_searcher.hpp>
+#include <string-searching/boyer_moore_substring_searcher.hpp>
 #include <string-searching/brute_force_substring_searcher.hpp>
 #include <string-searching/kmp_substring_searcher.hpp>
 #include <string-searching/rabin_karp_substring_searcher.hpp>
@@ -9,9 +10,10 @@
 #include <string-searching/z_substring_searcher.hpp>
 
 // Typedef for the list of algorithm types to be tested
-using Algorithms = ::testing::Types<BruteForceSubstringSearcher, KmpSubstringSearcher,
-                                    RabinKarpSearcher, ShiftOrSubstringSearcher, ZSubstringSearcher,
-                                    AhoCorasickSearcher, SuffixTreeSubstringSearcher>;
+using Algorithms =
+    ::testing::Types<BruteForceSubstringSearcher, KmpSubstringSearcher, RabinKarpSearcher,
+                     ShiftOrSubstringSearcher, ZSubstringSearcher, AhoCorasickSearcher,
+                     SuffixTreeSubstringSearcher, BoyerMooreSubstringSearcher>;
 
 // Define a test suite template for all algorithm types
 template <typename T>

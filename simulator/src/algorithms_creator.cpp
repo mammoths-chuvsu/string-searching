@@ -2,6 +2,7 @@
 #include <simulator/algorithms_creator.hpp>
 #include <stdexcept>
 #include <string-searching/aho_corasick_substring_searcher.hpp>
+#include <string-searching/boyer_moore_substring_searcher.hpp>
 #include <string-searching/brute_force_substring_searcher.hpp>
 #include <string-searching/kmp_substring_searcher.hpp>
 #include <string-searching/rabin_karp_substring_searcher.hpp>
@@ -23,6 +24,7 @@ AlgorithmList AlgorithmsCreator::CreateAlgorithms(
         {"shift-or", []() { return std::make_unique<ShiftOrSubstringSearcher>(); }},
         {"Aho-Corasick", []() { return std::make_unique<AhoCorasickSearcher>(); }},
         {"suffix-tree", []() { return std::make_unique<SuffixTreeSubstringSearcher>(); }},
+        {"boyer-moore", []() { return std::make_unique<BoyerMooreSubstringSearcher>(); }},
     };
 
     AlgorithmList algorithm_list;
