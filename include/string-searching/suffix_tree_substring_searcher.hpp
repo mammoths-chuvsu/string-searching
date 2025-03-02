@@ -48,7 +48,7 @@ private:
         /**
          * \brief Constructs the suffix tree from the provided text.
          */
-        SuffixTree(const std::string &s);
+        SuffixTree(const std::string& s);
 
         /**
          * \brief Destructor: frees all allocated nodes and edges.
@@ -61,7 +61,7 @@ private:
          * \param pattern The substring to search for.
          * \return True if pattern is found in the text.
          */
-        bool search(const std::string &pattern) const;
+        bool search(const std::string& pattern) const;
 
     private:
         /**
@@ -80,9 +80,8 @@ private:
         void buildTree();
 
         Node* root;
-        const std::string &s;
+        const std::string& s;
     };
 };
 
 #endif  // STRING_SEARCHING_SUFFIX_TREE_SUBSTRING_SEARCHER_HPP
-
