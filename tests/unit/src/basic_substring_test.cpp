@@ -6,11 +6,13 @@
 #include <string-searching/rabin_karp_substring_searcher.hpp>
 #include <string-searching/shift_or_substring_searcher.hpp>
 #include <string-searching/z_substring_searcher.hpp>
+#include <string-searching/suffix_tree_substring_searcher.hpp>
 
 // Typedef for the list of algorithm types to be tested
 using Algorithms =
     ::testing::Types<BruteForceSubstringSearcher, KmpSubstringSearcher, RabinKarpSearcher,
-                     ShiftOrSubstringSearcher, ZSubstringSearcher, AhoCorasickSearcher>;
+                     ShiftOrSubstringSearcher, ZSubstringSearcher, AhoCorasickSearcher,
+                     SuffixTreeSubstringSearcher>;
 
 // Define a test suite template for all algorithm types
 template <typename T>

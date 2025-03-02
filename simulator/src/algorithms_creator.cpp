@@ -7,6 +7,7 @@
 #include <string-searching/rabin_karp_substring_searcher.hpp>
 #include <string-searching/shift_or_substring_searcher.hpp>
 #include <string-searching/z_substring_searcher.hpp>
+#include <string-searching/suffix_tree_substring_searcher.hpp>
 
 #include "simulator/utils.hpp"
 
@@ -21,6 +22,7 @@ AlgorithmList AlgorithmsCreator::CreateAlgorithms(
         {"Z-algorithm", []() { return std::make_unique<ZSubstringSearcher>(); }},
         {"shift-or", []() { return std::make_unique<ShiftOrSubstringSearcher>(); }},
         {"Aho-Corasick", []() { return std::make_unique<AhoCorasickSearcher>(); }},
+        {"suffix-tree", []() { return std::make_unique<SuffixTreeSubstringSearcher>(); }},
     };
 
     AlgorithmList algorithm_list;

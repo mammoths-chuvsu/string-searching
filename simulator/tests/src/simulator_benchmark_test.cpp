@@ -9,9 +9,9 @@ class SimulatorBenchmarkTest : public ::testing::Test {
 protected:
     void SetUp() override {
         algorithms_ = AlgorithmsCreator::CreateAlgorithms(
-            {"brute-force", "KMP", "Rabin-Karp", "Z-algorithm", "Aho-Corasick"});
+            {"brute-force", "KMP", "Rabin-Karp", "Z-algorithm", "Aho-Corasick", "suffix-tree"});
         algorithms_move_ = AlgorithmsCreator::CreateAlgorithms(
-            {"brute-force", "KMP", "Rabin-Karp", "Z-algorithm", "Aho-Corasick"});
+            {"brute-force", "KMP", "Rabin-Karp", "Z-algorithm", "Aho-Corasick", "suffix-tree"});
     }
 
     void VerifyOutput(const std::string& output, const std::string& algorithm_name,
