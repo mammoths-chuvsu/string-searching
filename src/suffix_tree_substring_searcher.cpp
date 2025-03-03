@@ -1,6 +1,9 @@
-#include <bits/stdc++.h>
-
+#include <algorithm>  // for std::min and std::fill
 #include <string-searching/suffix_tree_substring_searcher.hpp>
+#include <string>
+#include <utility>
+#include <vector>
+
 using namespace std;
 
 namespace detail {
