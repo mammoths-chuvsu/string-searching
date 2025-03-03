@@ -24,14 +24,13 @@ private:
         std::list<int>* indexes;
 
     public:
-        SuffixTrieNode()
-        {
+        SuffixTrieNode() {
             // Create an empty linked list for indexes of
             // suffixes starting from this node
             indexes = new std::list<int>;
 
             // Initialize all child pointers as NULL
-            for (auto &i : children) i = nullptr;
+            for (auto& i : children) i = nullptr;
         }
 
         // A recursive function to insert a suffix of the txt
