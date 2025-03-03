@@ -201,6 +201,9 @@ SuffixTreeSubstringSearcher::SuffixTreeSubstringSearcher() : BaseSubstringSearch
 
 bool SuffixTreeSubstringSearcher::Contains(const std::string &text,
                                            const std::string &substring) const {
+    if (substring.empty()) return true;
+    if (text.length() < substring.length()) return false;
+
     // Append a termination symbol (assumed not to be in text).
     string modified_text = text;
     modified_text.push_back('#');
