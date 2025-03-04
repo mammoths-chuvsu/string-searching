@@ -15,7 +15,7 @@ def run_simulator(algorithm_name, text_path, substring_path):
     
     simulator_path = os.path.join(*simulator_base)
 
-    command = [simulator_path, "--algorithm", algorithm_name, "-T", text_path, "-S", substring_path]
+    command = [simulator_path, "--algorithm", algorithm_name, "-T", text_path, "-S", substring_path, "-i", "3"]
 
     if not os.path.exists(simulator_path):
         print(f"Simulator executable not found: {simulator_path}")

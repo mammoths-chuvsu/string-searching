@@ -15,6 +15,7 @@ private:
     po::variables_map options_;  ///< Parsed arguments storage.
     std::string substring_;
     std::string text_;
+    int iterations_number_ = 1;
 
 public:
     std::string ReadFileContent(const std::string& file_path);
@@ -41,6 +42,8 @@ public:
      * \brief Get parsed text.
      */
     const std::string GetText() const;
+
+    const int GetIterationsNumber() const;
 };
 
 #endif  // ARGUMENTPARSER_HPP

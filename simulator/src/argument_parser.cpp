@@ -24,7 +24,8 @@ ArgumentParser::ArgumentParser(int argc, char** argv) {
         "substring,s", po::value<std::string>(), "substring to search for")(
         "substring-file,S", po::value<std::string>(), "file with substring to search for")(
         "text,t", po::value<std::string>(), "text to be searched")(
-        "text-file,T", po::value<std::string>(), "file with text to be searched");
+        "text-file,T", po::value<std::string>(), "file with text to be searched")(
+        "iter,i", po::value<int>(), "number of iterations");
 
     po::store(po::parse_command_line(argc, argv, description), options_);
     po::notify(options_);
@@ -53,6 +54,10 @@ ArgumentParser::ArgumentParser(int argc, char** argv) {
     } else if (options_.count("text")) {
         text_ = options_["text"].as<std::string>();
     }
+
+    if (options_.count("iter")) {
+        iterations_number_ = options_["iter"].as<int>();
+    }
 }
 
 const std::vector<std::string> ArgumentParser::GetAlgorithmsNames() {
@@ -63,3 +68,5 @@ const std::vector<std::string> ArgumentParser::GetAlgorithmsNames() {
 const std::string ArgumentParser::GetSubstring() const { return substring_; }
 
 const std::string ArgumentParser::GetText() const { return text_; }
+
+const int ArgumentParser::GetIterationsNumber() const { return iterations_number_; };

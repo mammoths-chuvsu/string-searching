@@ -10,6 +10,7 @@ int main(int argc, char** argv) {
     std::vector<std::string> algorithm_names = parser.GetAlgorithmsNames();
     std::string substring = parser.GetSubstring();
     std::string text = parser.GetText();
+    int iterations = parser.GetIterationsNumber();
 
     if (substring.empty() || text.empty()) {
         std::cerr << "Missing required arguments. Use --help for more information.\n";
@@ -20,7 +21,7 @@ int main(int argc, char** argv) {
 
     Simulator simulator(std::move(algorithms));
 
-    simulator.Run(text, substring, std::cout);
+    simulator.Run(text, substring, std::cout, iterations);
 
     return 0;
 }
