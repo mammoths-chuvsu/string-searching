@@ -26,7 +26,7 @@ void Simulator::Run(const std::string& text, const std::string& substring, std::
         }
 
         mean /= iterations;
-        deviation = deviation / iterations - std::pow(mean, 2);
+        deviation = std::sqrt(deviation / iterations - std::pow(mean, 2));
 
         output << "----------------------------\n";
         output << "Timestamp: " << std::put_time(std::localtime(&now), "%Y-%m-%d %H:%M:%S") << "\n";
