@@ -27,7 +27,8 @@ public:
      * Status: substring [not] found
      * ----------------------------
      */
-    void Run(const std::string &text, const std::string &substring, std::ostream &output);
+    void Run(const std::string &text, const std::string &substring, std::ostream &output,
+             int iterations = 1);
 
 private:
     const AlgorithmList algorithms_;  ///< List of algorithms.

@@ -9,11 +9,12 @@ on:
 
 jobs:
   unit_tests:
-      runs-on: ubuntu-latest
+      name: Run unit-tests on ${{ matrix.os }} in ${{ matrix.BUILD_TYPE }} mode
+      runs-on: ${{ matrix.os }}
       strategy:
           matrix:
-              cfg:
-                  - { BUILD_TYPE: Release }
+              BUILD_TYPE: [Release]
+              os: [ubuntu-latest, windows-latest, macos-latest]
       steps:
         - uses: actions/checkout@v4
         
